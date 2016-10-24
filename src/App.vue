@@ -6,6 +6,7 @@
               <h2>Hello World</h2>
           </header>
       </div>
+      <router-view></router-view>
   </div>
 </template>
 
