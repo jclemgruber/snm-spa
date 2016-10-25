@@ -1,12 +1,9 @@
 <template>
   <div id="app">
       <RootHeader></RootHeader>
-      <div class="container">
-          <header class="page-header">
-              <h2>Hello World</h2>
-          </header>
+      <div class="container-fluid">
+        <router-view></router-view>
       </div>
-      <router-view></router-view>
   </div>
 </template>
 

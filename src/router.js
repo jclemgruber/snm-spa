@@ -2,46 +2,16 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-let routes = {
-  // Not found
-  '*': {
-    component: require('./components/root/errors/Error404.vue')
+const routes = [
+  {
+    path: '/home',
+    component: require('./Home.vue')
   },
-
-  // Index
-  '/': {
-    name: 'index',
-    component: require('./App.vue')
+  {
+    path: '/login',
+    component: require('./components/auth/Login.vue')
   }
- /*
-  '/login': {
-    name: 'login',
-    component: require('./compoments/Login.vue')
-  },
+]
+const router = new VueRouter({routes})
 
-  '/register': {
-    name: 'register',
-    component: load('auth/register')
-  },
-
-  '/profile': {
-    name: 'profile',
-    component: load('layouts/menu'),
-    subRoutes: {
-      '/': {component: load('profile')}
-    }
-  },
-
-  '/jokes': {
-    name: 'jokes',
-    component: load('layouts/menu'),
-    subRoutes: {
-      '/': {component: load('jokes')}
-    }
-  } */
-}
-
-var Router = new VueRouter()
-Router.map(routes)
-
-export default Router
+export default router

@@ -1,25 +1,12 @@
 import Vue from 'vue'
+import VueResource from 'vue-resource'
 import App from './App'
-import Home from './Home'
-import VueRouter from 'vue-router'
+import router from './router'
 
-Vue.use(VueRouter)
-
-var router = new VueRouter()
-
-router.map({
-  '/': {
-    component: Home
-  }
-})
-
-router.start(App, '#app')
+Vue.use(VueResource)
 
 /* eslint-disable no-new */
-/*
 new Vue({
   router,
-  el: '#app',
   render: h => h(App)
-})
-*/
+}).$mount('#app')
