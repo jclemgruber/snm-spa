@@ -24,12 +24,14 @@
                   <input v-model="User.password" type="password" class="form-control" id="password" placeholder="Digite sua senha">
               </div>
 
-              <button type="submit" class="btn btn-default form-control" @click="login">Login</button>
+              <button type="submit" class="btn btn-default form-control" @click.prevent="login">Login</button>
           </form>
       </div>
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   data () {
     return {
@@ -37,17 +39,29 @@ export default {
         email: '',
         password: ''
       },
-
-      token: '',
-
       error: null
+    }
+  },
+  computed: {
+    authenticated () {
+      return this.$store.state.user.authenticated
     }
   },
   methods: {
     login () {
       this.$http.post('http://localhost/api/token', this.User).then((response) => {
-        this.token = response.data.token
+        Vue.http.headers.common['Authorization'] = 'Bearer ' + response.data.token
+        this.$store.commit('authenticate', response.data.token)
+
+        // Busca os dados do usuário caso a autenticação seja concluída
+        this.$http.get('http://localhost/api/user').then((response) => {
+          this.$store.commit('profile', response.data)
+        }, (response) => {
+          console.log(response)
+        })
+        this.$router.push('/home')
       }, (response) => {
+        console.log(response)
         this.error = response.data.error
       })
     }
