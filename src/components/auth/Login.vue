@@ -45,16 +45,19 @@ export default {
   computed: {
     authenticated () {
       return this.$store.state.user.authenticated
+    },
+    serverAddress () {
+      return this.$store.state.config.serverAddress
     }
   },
   methods: {
     login () {
-      this.$http.post('http://localhost/api/token', this.User).then((response) => {
+      this.$http.post(this.serverAddress + '/token', this.User).then((response) => {
         Vue.http.headers.common['Authorization'] = 'Bearer ' + response.data.token
         this.$store.commit('authenticate', response.data.token)
 
         // Busca os dados do usuário caso a autenticação seja concluída
-        this.$http.get('http://localhost/api/user').then((response) => {
+        this.$http.get(this.serverAddress + '/user').then((response) => {
           this.$store.commit('profile', response.data)
         }, (response) => {
           console.log(response)

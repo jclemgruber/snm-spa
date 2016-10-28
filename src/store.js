@@ -9,6 +9,9 @@ const store = new Vuex.Store({
       authenticated: false,
       token: '',
       profile: {}
+    },
+    config: {
+      serverAddress: 'http://localhost/api'
     }
   },
   mutations: {

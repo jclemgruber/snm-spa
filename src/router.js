@@ -10,6 +10,10 @@ const routes = [
   {
     path: '/login',
     component: require('./components/auth/Login.vue')
+  },
+  {
+    path: '/register',
+    component: require('./components/auth/Register.vue')
   }
 ]
 const router = new VueRouter({routes})
