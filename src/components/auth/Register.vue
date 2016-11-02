@@ -52,6 +52,7 @@
 import helper from '../../libs/helper.js'
 
 export default {
+  name: 'Register',
   data () {
     return {
       User: {

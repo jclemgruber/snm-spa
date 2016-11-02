@@ -33,6 +33,7 @@
 import Vue from 'vue'
 
 export default {
+  name: 'Login',
   data () {
     return {
       User: {

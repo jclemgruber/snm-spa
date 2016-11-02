@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.7.0",
     "vue": "^2.0.1"
   },
   "devDependencies": {
@@ -47,7 +48,6 @@
     "url-loader": "^0.5.7",
     "v-mask": "^1.0.1",
     "vue-loader": "^9.4.0",
-    "vue-mask": "^1.0.0",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.1",
     "vue-style-loader": "^1.0.0",

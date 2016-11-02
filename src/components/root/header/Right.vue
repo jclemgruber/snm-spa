@@ -2,6 +2,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li><router-link to="/login" v-if="!authenticated">Login</router-link></li>
       <li><router-link to="/register" v-if="!authenticated">Registrar</router-link></li>
+      <li><router-link to="/temas" v-if="authenticated">Temas</router-link></li>
       <li v-if="authenticated" class="dropdown" @click.prevent="toogle" :class="{open: isOpen}">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" :aria-expanded="{'true':isOpen, 'false':!isOpen}">{{profile}} <span class="caret"></span></a>
         <ul class="dropdown-menu">
